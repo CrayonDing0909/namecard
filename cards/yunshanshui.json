@@ -550,6 +550,30 @@
            ]
           }
          ]
+        },
+        {
+         "type": "box",
+         "layout": "vertical",
+         "flex": 1,
+         "backgroundColor": "#FFFFFF",
+         "cornerRadius": "md",
+         "paddingTop": "9px",
+         "paddingBottom": "9px",
+         "action": {
+          "type": "uri",
+          "label": "分享名片給朋友",
+          "uri": "https://liff.line.me/2011918079-fKPyFs4q?c=yunshanshui"
+         },
+         "contents": [
+          {
+           "type": "text",
+           "text": "分享名片給朋友",
+           "color": "#0E2340",
+           "align": "center",
+           "size": "sm",
+           "weight": "bold"
+          }
+         ]
         }
        ]
       }
