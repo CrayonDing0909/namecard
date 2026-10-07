@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>分享數位名片</title>
+<style>
+  body{margin:0;font-family:-apple-system,'PingFang TC',sans-serif;background:#111;color:#fff;
+       display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:24px;box-sizing:border-box}
+  button{font-size:18px;font-weight:700;border:0;border-radius:12px;padding:16px 28px;margin:8px;width:100%;max-width:320px;background:#06C755;color:#fff}
+  button.alt{background:#333}
+  #msg{opacity:.75;margin:16px 0;font-size:15px;line-height:1.6}
+</style>
+</head>
+<body>
+  <div id="msg">載入名片中…</div>
+  <button id="share" hidden>選擇好友分享名片</button>
+  <button id="close" class="alt" hidden>關閉</button>
+
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script>
+// 設定：自己的 LIFF ID（LINE Developers Console 建立後填入）
+const LIFF_ID = 'REPLACE_WITH_LIFF_ID';
+
+const $ = id => document.getElementById(id);
+const say = t => { $('msg').textContent = t; };
+const param = k => new URLSearchParams(location.search).get(k);
+let cardId = '';
+
+async function loadCard () {
+  if (!cardId) throw new Error('缺少名片代號');
+  const res = await fetch(`cards/${cardId}.json?t=${Date.now()}`);
+  if (!res.ok) throw new Error('找不到這張名片');
+  return res.json(); // 完整的 flex message 物件 {type:'flex', altText, contents}
+}
+
+async function share (msg) {
+  if (!liff.isApiAvailable('shareTargetPicker')) {
+    say('這個環境不支援分享，請用手機 LINE 開啟此連結。');
+    return;
+  }
+  const r = await liff.shareTargetPicker([msg]);
+  if (r && r.status === 'success') {
+    say('已分享！');
+    $('close').hidden = false;
+    setTimeout(() => liff.isInClient() && liff.closeWindow(), 800);
+  } else {
+    say('已取消分享。');
+    $('share').hidden = false;
+  }
+}
+
+(async () => {
+  try {
+    await liff.init({ liffId: LIFF_ID });
+    // 第一次開啟時 LINE 會帶 liff.state，init 會自動轉址到真正網址，這裡先停
+    if (param('liff.state')) return;
+    if (!liff.isLoggedIn()) { liff.login({ redirectUri: location.href }); return; }
+    cardId = (param('c') || '').replace(/[^\w-]/g, '');
+    const msg = await loadCard();
+    $('share').onclick = () => share(msg).catch(e => say('分享失敗：' + e.message));
+    $('close').onclick = () => liff.closeWindow();
+    say(msg.altText || '數位名片');
+    // 一打開就直接跳出選好友畫面；被瀏覽器擋下時退回按鈕
+    try { await share(msg); } catch (e) { $('share').hidden = false; }
+  } catch (e) {
+    say('載入失敗：' + e.message);
+  }
+})();
+</script>
+</body>
+</html>

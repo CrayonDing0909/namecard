@@ -1,0 +1,561 @@
+{
+ "type": "flex",
+ "altText": "蔡鴻祺｜雲山水集團 數位名片",
+ "contents": {
+  "type": "carousel",
+  "contents": [
+   {
+    "type": "bubble",
+    "size": "kilo",
+    "body": {
+     "type": "box",
+     "layout": "vertical",
+     "paddingAll": "0px",
+     "backgroundColor": "#14110D",
+     "contents": [
+      {
+       "type": "image",
+       "url": "https://crayonding0909.github.io/namecard/assets/yunshanshui/card1.jpg",
+       "size": "full",
+       "aspectMode": "cover",
+       "aspectRatio": "20:32",
+       "gravity": "top"
+      },
+      {
+       "type": "box",
+       "layout": "vertical",
+       "paddingAll": "12px",
+       "paddingBottom": "16px",
+       "spacing": "md",
+       "contents": [
+        {
+         "type": "text",
+         "text": "承德音響電器公司",
+         "size": "md",
+         "weight": "bold",
+         "color": "#FFFFFF",
+         "wrap": true
+        },
+        {
+         "type": "box",
+         "layout": "horizontal",
+         "spacing": "md",
+         "contents": [
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 2,
+           "backgroundColor": "#D4A857",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "打電話",
+            "uri": "tel:0225921615"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "打電話",
+             "color": "#14110D",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          },
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 2,
+           "backgroundColor": "#FFFFFF33",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "門市介紹",
+            "uri": "https://www.villanews.tw/political-news/newsinfo/lg-jia-dian-hua-lian-shou-feng-zhuan-mai-dian"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "門市介紹",
+             "color": "#FFFFFF",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "type": "bubble",
+    "size": "kilo",
+    "body": {
+     "type": "box",
+     "layout": "vertical",
+     "paddingAll": "0px",
+     "backgroundColor": "#1E3B2C",
+     "contents": [
+      {
+       "type": "image",
+       "url": "https://crayonding0909.github.io/namecard/assets/yunshanshui/card2.jpg",
+       "size": "full",
+       "aspectMode": "cover",
+       "aspectRatio": "20:32",
+       "gravity": "top"
+      },
+      {
+       "type": "box",
+       "layout": "vertical",
+       "paddingAll": "12px",
+       "paddingBottom": "16px",
+       "spacing": "md",
+       "contents": [
+        {
+         "type": "text",
+         "text": "雲山水民宿莊園",
+         "size": "md",
+         "weight": "bold",
+         "color": "#FFFFFF",
+         "wrap": true
+        },
+        {
+         "type": "box",
+         "layout": "horizontal",
+         "spacing": "md",
+         "contents": [
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 2,
+           "backgroundColor": "#E8D9B0",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "電話訂房",
+            "uri": "tel:0910166943"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "電話訂房",
+             "color": "#1E3B2C",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          },
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 2,
+           "backgroundColor": "#FFFFFF33",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "民宿官網",
+            "uri": "http://www.villa898.com"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "民宿官網",
+             "color": "#FFFFFF",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "type": "bubble",
+    "size": "kilo",
+    "body": {
+     "type": "box",
+     "layout": "vertical",
+     "paddingAll": "0px",
+     "backgroundColor": "#3B2416",
+     "contents": [
+      {
+       "type": "image",
+       "url": "https://crayonding0909.github.io/namecard/assets/yunshanshui/card3.jpg",
+       "size": "full",
+       "aspectMode": "cover",
+       "aspectRatio": "20:32",
+       "gravity": "top"
+      },
+      {
+       "type": "box",
+       "layout": "vertical",
+       "paddingAll": "12px",
+       "paddingBottom": "16px",
+       "spacing": "md",
+       "contents": [
+        {
+         "type": "text",
+         "text": "雲山水藝伎咖啡",
+         "size": "md",
+         "weight": "bold",
+         "color": "#FFFFFF",
+         "wrap": true
+        },
+        {
+         "type": "box",
+         "layout": "horizontal",
+         "spacing": "md",
+         "contents": [
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 2,
+           "backgroundColor": "#F3E3C3",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "咖啡介紹",
+            "uri": "https://www.villanews.tw/political-news/newsinfo/yun-shan-shui-min-su-zhuang-yuan-ka-fei"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "咖啡介紹",
+             "color": "#3B2416",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          },
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 1,
+           "backgroundColor": "#FFFFFF33",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "導航",
+            "uri": "https://www.google.com/maps/search/?api=1&query=%E8%8A%B1%E8%93%AE%E7%B8%A3%E5%A3%BD%E8%B1%90%E9%84%89%E8%B1%90%E5%9D%AA%E8%B7%AF%E4%BA%8C%E6%AE%B52%E5%B7%B7201%E5%BC%8412%E8%99%9F"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "導航",
+             "color": "#FFFFFF",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "type": "bubble",
+    "size": "kilo",
+    "body": {
+     "type": "box",
+     "layout": "vertical",
+     "paddingAll": "0px",
+     "backgroundColor": "#3A0C0C",
+     "contents": [
+      {
+       "type": "image",
+       "url": "https://crayonding0909.github.io/namecard/assets/yunshanshui/card4.jpg",
+       "size": "full",
+       "aspectMode": "cover",
+       "aspectRatio": "20:32",
+       "gravity": "top"
+      },
+      {
+       "type": "box",
+       "layout": "vertical",
+       "paddingAll": "12px",
+       "paddingBottom": "16px",
+       "spacing": "md",
+       "contents": [
+        {
+         "type": "text",
+         "text": "鐵口直斷 6G轉運站",
+         "size": "md",
+         "weight": "bold",
+         "color": "#FFFFFF",
+         "wrap": true
+        },
+        {
+         "type": "box",
+         "layout": "horizontal",
+         "spacing": "md",
+         "contents": [
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 2,
+           "backgroundColor": "#F2C14E",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "電話預約",
+            "uri": "tel:0910166943"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "電話預約",
+             "color": "#3A0C0C",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          },
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 1,
+           "backgroundColor": "#FFFFFF33",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "導航",
+            "uri": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8C%97%E5%B8%82%E6%89%BF%E5%BE%B7%E8%B7%AF%E4%B8%89%E6%AE%B562%E8%99%9F"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "導航",
+             "color": "#FFFFFF",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "type": "bubble",
+    "size": "kilo",
+    "body": {
+     "type": "box",
+     "layout": "vertical",
+     "paddingAll": "0px",
+     "backgroundColor": "#5E120C",
+     "contents": [
+      {
+       "type": "image",
+       "url": "https://crayonding0909.github.io/namecard/assets/yunshanshui/card5.jpg",
+       "size": "full",
+       "aspectMode": "cover",
+       "aspectRatio": "20:32",
+       "gravity": "top"
+      },
+      {
+       "type": "box",
+       "layout": "vertical",
+       "paddingAll": "12px",
+       "paddingBottom": "16px",
+       "spacing": "md",
+       "contents": [
+        {
+         "type": "text",
+         "text": "孔雀明王祈福消災法會",
+         "size": "md",
+         "weight": "bold",
+         "color": "#FFFFFF",
+         "wrap": true
+        },
+        {
+         "type": "box",
+         "layout": "horizontal",
+         "spacing": "md",
+         "contents": [
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 2,
+           "backgroundColor": "#F5D27A",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "法會資訊",
+            "uri": "https://www.villanews.tw/political-news/newsinfo/kong-que-ming-wang-hu-guo-xi-zai-qi-fu-da-fa-hui-quan-tai-shi-da-ma-zu-ma-zu-hui-shang-fu-pu-sa-10-16-19tai-bei-hua-bo-zheng-yan-guan-deng-chang"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "法會資訊",
+             "color": "#5E120C",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          },
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 1,
+           "backgroundColor": "#FFFFFF33",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "導航",
+            "uri": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8C%97%E8%8A%B1%E5%8D%9A%E7%88%AD%E8%89%B7%E9%A4%A8"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "導航",
+             "color": "#FFFFFF",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "type": "bubble",
+    "size": "kilo",
+    "body": {
+     "type": "box",
+     "layout": "vertical",
+     "paddingAll": "0px",
+     "backgroundColor": "#0E2340",
+     "contents": [
+      {
+       "type": "image",
+       "url": "https://crayonding0909.github.io/namecard/assets/yunshanshui/card6.jpg",
+       "size": "full",
+       "aspectMode": "cover",
+       "aspectRatio": "20:32",
+       "gravity": "top"
+      },
+      {
+       "type": "box",
+       "layout": "vertical",
+       "paddingAll": "12px",
+       "paddingBottom": "16px",
+       "spacing": "md",
+       "contents": [
+        {
+         "type": "text",
+         "text": "雲山水聯合新聞網",
+         "size": "md",
+         "weight": "bold",
+         "color": "#FFFFFF",
+         "wrap": true
+        },
+        {
+         "type": "box",
+         "layout": "horizontal",
+         "spacing": "md",
+         "contents": [
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 2,
+           "backgroundColor": "#9CC7F0",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "最新新聞",
+            "uri": "https://www.villanews.tw/"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "最新新聞",
+             "color": "#0E2340",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          },
+          {
+           "type": "box",
+           "layout": "vertical",
+           "flex": 1,
+           "backgroundColor": "#FFFFFF33",
+           "cornerRadius": "md",
+           "paddingTop": "9px",
+           "paddingBottom": "9px",
+           "action": {
+            "type": "uri",
+            "label": "聯絡",
+            "uri": "tel:0910166943"
+           },
+           "contents": [
+            {
+             "type": "text",
+             "text": "聯絡",
+             "color": "#FFFFFF",
+             "align": "center",
+             "size": "sm",
+             "weight": "bold"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   }
+  ]
+ }
+}
