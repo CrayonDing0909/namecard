@@ -2,29 +2,52 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>分享數位名片</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>數位名片</title>
 <style>
-  body{margin:0;font-family:-apple-system,'PingFang TC',sans-serif;background:#111;color:#fff;
-       display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:24px;box-sizing:border-box}
-  button{font-size:18px;font-weight:700;border:0;border-radius:12px;padding:16px 28px;margin:8px;width:100%;max-width:320px;background:#06C755;color:#fff}
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  body{margin:0;font-family:-apple-system,'PingFang TC',sans-serif;background:#111;color:#fff;text-align:center}
+  .center{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:24px}
+  button{display:block;font-size:17px;font-weight:700;border:0;border-radius:12px;padding:15px 24px;margin:6px auto;width:100%;max-width:340px;background:#06C755;color:#fff}
   button.alt{background:#333}
-  #msg{opacity:.75;margin:16px 0;font-size:15px;line-height:1.6}
+  #msg{opacity:.75;margin:14px 0;font-size:15px;line-height:1.6}
+  /* 掃 QR 進來的瀏覽模式 */
+  #view{padding:18px 0 110px}
+  #view h1{font-size:17px;font-weight:600;margin:6px 18px 14px;opacity:.9}
+  .rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 18px 6px;-webkit-overflow-scrolling:touch}
+  .card{flex:0 0 78%;max-width:340px;scroll-snap-align:center;background:#1c1c1c;border-radius:16px;overflow:hidden;text-align:left}
+  .card img{display:block;width:100%;aspect-ratio:20/32;object-fit:cover}
+  .card .n{font-weight:700;font-size:15px;padding:10px 12px 4px}
+  .card .b{display:flex;gap:8px;padding:6px 12px 14px;flex-wrap:wrap}
+  .card a{flex:1;min-width:40%;text-align:center;text-decoration:none;color:#fff;background:#333;border-radius:9px;padding:9px 6px;font-size:14px;font-weight:600}
+  .card a:first-child{background:#06C755}
+  .hint{font-size:12px;opacity:.5;margin-top:10px}
+  .bar{position:fixed;left:0;right:0;bottom:0;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,#111 35%)}
 </style>
 </head>
 <body>
-  <div id="msg">載入名片中…</div>
-  <button id="share" hidden>選擇好友分享名片</button>
-  <button id="close" class="alt" hidden>關閉</button>
+  <div id="boot" class="center">
+    <div id="msg">載入名片中…</div>
+    <button id="share" hidden>選擇好友分享名片</button>
+    <button id="close" class="alt" hidden>關閉</button>
+  </div>
+  <div id="view" hidden>
+    <h1 id="title"></h1>
+    <div class="rail" id="rail"></div>
+    <div class="hint">← 左右滑動看更多 →</div>
+    <div class="bar"><button id="vshare">傳到 LINE（給自己或朋友）</button></div>
+  </div>
 
 <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <script>
-// 設定：自己的 LIFF ID（LINE Developers Console 建立後填入）
+// 設定：自己的 LIFF ID（publish.py 會自動填入）
 const LIFF_ID = 'REPLACE_WITH_LIFF_ID';
 
 const $ = id => document.getElementById(id);
 const say = t => { $('msg').textContent = t; };
 const param = k => new URLSearchParams(location.search).get(k);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 let cardId = '';
 
 async function loadCard () {
@@ -34,17 +57,56 @@ async function loadCard () {
   return res.json(); // 完整的 flex message 物件 {type:'flex', altText, contents}
 }
 
+// 從 flex bubble 取出：主圖、名稱、按鈕（label/uri）
+function digest (node, out = { img: null, name: null, btns: [] }) {
+  if (!node || typeof node !== 'object') return out;
+  if (node.type === 'image' && !out.img) out.img = node.url;
+  if (node.type === 'text' && !out.name && !node.__inBtn) out.name = node.text;
+  if (node.action && node.action.type === 'uri') {
+    const label = (node.contents || []).map(c => c.text).filter(Boolean).join(' ') || node.action.label;
+    out.btns.push({ label, uri: node.action.uri });
+    return out;
+  }
+  for (const k of ['hero', 'body', 'footer']) if (node[k]) digest(node[k], out);
+  for (const c of node.contents || []) digest(c, out);
+  return out;
+}
+
+function renderView (msg) {
+  const bubbles = msg.contents.type === 'carousel' ? msg.contents.contents : [msg.contents];
+  $('title').textContent = msg.altText || '數位名片';
+  $('rail').innerHTML = bubbles.map(b => {
+    const d = digest(b);
+    const btns = d.btns.filter(x => !x.uri.includes('liff.line.me'))
+      .map(x => `<a href="${esc(x.uri)}" target="_blank" rel="noopener">${esc(x.label)}</a>`).join('');
+    return `<div class="card">${d.img ? `<img src="${esc(d.img)}" alt="">` : ''}` +
+      `<div class="n">${esc(d.name || '')}</div><div class="b">${btns}</div></div>`;
+  }).join('');
+  $('boot').hidden = true;
+  $('view').hidden = false;
+}
+
 async function share (msg) {
+  if (!liff.isLoggedIn()) {
+    // 外部瀏覽器（例如手機相機掃 QR 開到 Safari）要先登入 LINE；回來後自動跳分享
+    const u = new URL(location.href); u.searchParams.set('autoshare', '1');
+    liff.login({ redirectUri: u.toString() });
+    return;
+  }
   if (!liff.isApiAvailable('shareTargetPicker')) {
-    say('這個環境不支援分享，請用手機 LINE 開啟此連結。');
+    alert('這個環境不支援分享，請用手機 LINE 開啟。');
     return;
   }
   const r = await liff.shareTargetPicker([msg]);
   if (r && r.status === 'success') {
-    say('已分享！');
-    $('close').hidden = false;
-    setTimeout(() => liff.isInClient() && liff.closeWindow(), 800);
-  } else {
+    if ($('view').hidden) {
+      say('已分享！');
+      $('close').hidden = false;
+      setTimeout(() => liff.isInClient() && liff.closeWindow(), 800);
+    } else {
+      $('vshare').textContent = '已傳送 ✓ 再傳一次';
+    }
+  } else if ($('view').hidden) {
     say('已取消分享。');
     $('share').hidden = false;
   }
@@ -55,13 +117,21 @@ async function share (msg) {
     await liff.init({ liffId: LIFF_ID });
     // 第一次開啟時 LINE 會帶 liff.state，init 會自動轉址到真正網址，這裡先停
     if (param('liff.state')) return;
-    if (!liff.isLoggedIn()) { liff.login({ redirectUri: location.href }); return; }
     cardId = (param('c') || '').replace(/[^\w-]/g, '');
     const msg = await loadCard();
-    $('share').onclick = () => share(msg).catch(e => say('分享失敗：' + e.message));
+    const onShare = () => share(msg).catch(e => alert('分享失敗：' + e.message));
+    $('share').onclick = onShare;
+    $('vshare').onclick = onShare;
     $('close').onclick = () => liff.closeWindow();
+
+    // v=1：掃 QR 進來，先給對方看名片＋按鈕；否則（本人分享連結）直接跳選好友
+    if (param('v') === '1') {
+      renderView(msg);
+      if (param('autoshare') === '1' && liff.isLoggedIn()) onShare();
+      return;
+    }
+    if (!liff.isLoggedIn()) { liff.login({ redirectUri: location.href }); return; }
     say(msg.altText || '數位名片');
-    // 一打開就直接跳出選好友畫面；被瀏覽器擋下時退回按鈕
     try { await share(msg); } catch (e) { $('share').hidden = false; }
   } catch (e) {
     say('載入失敗：' + e.message);
