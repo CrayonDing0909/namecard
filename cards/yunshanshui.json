@@ -90,6 +90,19 @@
            ]
           }
          ]
+        },
+        {
+         "type": "text",
+         "text": "↗ 分享這份名片給朋友",
+         "size": "xs",
+         "align": "center",
+         "color": "#D4A857",
+         "margin": "sm",
+         "action": {
+          "type": "uri",
+          "label": "分享名片",
+          "uri": "https://liff.line.me/2011918079-fKPyFs4q?c=yunshanshui"
+         }
         }
        ]
       }
@@ -182,6 +195,19 @@
            ]
           }
          ]
+        },
+        {
+         "type": "text",
+         "text": "↗ 分享這份名片給朋友",
+         "size": "xs",
+         "align": "center",
+         "color": "#E8D9B0",
+         "margin": "sm",
+         "action": {
+          "type": "uri",
+          "label": "分享名片",
+          "uri": "https://liff.line.me/2011918079-fKPyFs4q?c=yunshanshui"
+         }
         }
        ]
       }
@@ -274,6 +300,19 @@
            ]
           }
          ]
+        },
+        {
+         "type": "text",
+         "text": "↗ 分享這份名片給朋友",
+         "size": "xs",
+         "align": "center",
+         "color": "#F3E3C3",
+         "margin": "sm",
+         "action": {
+          "type": "uri",
+          "label": "分享名片",
+          "uri": "https://liff.line.me/2011918079-fKPyFs4q?c=yunshanshui"
+         }
         }
        ]
       }
@@ -366,6 +405,19 @@
            ]
           }
          ]
+        },
+        {
+         "type": "text",
+         "text": "↗ 分享這份名片給朋友",
+         "size": "xs",
+         "align": "center",
+         "color": "#F2C14E",
+         "margin": "sm",
+         "action": {
+          "type": "uri",
+          "label": "分享名片",
+          "uri": "https://liff.line.me/2011918079-fKPyFs4q?c=yunshanshui"
+         }
         }
        ]
       }
@@ -458,6 +510,19 @@
            ]
           }
          ]
+        },
+        {
+         "type": "text",
+         "text": "↗ 分享這份名片給朋友",
+         "size": "xs",
+         "align": "center",
+         "color": "#F5D27A",
+         "margin": "sm",
+         "action": {
+          "type": "uri",
+          "label": "分享名片",
+          "uri": "https://liff.line.me/2011918079-fKPyFs4q?c=yunshanshui"
+         }
         }
        ]
       }
